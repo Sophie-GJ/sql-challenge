@@ -1,52 +1,53 @@
 --create and define new tables
 
 CREATE TABLE Departments (
-    dept_no INT PK NOT NULL,
+    dept_no INT NOT NULL,
     dept_name VARCHAR(30) NOT NULL,
+	PRIMARY KEY (dept_no)
 );
 
 CREATE TABLE Titles (
-    title_id INT PK NOT NULL,
+    title_id INTEGER NOT NULL,
 	title VARCHAR(30) NOT NULL,
-);
-
-CREATE TABLE Managers_Dept (
-    id PK SERIAL NOT NULL,
-	dept_no INT NOT NULL,
-	emp_no INT NOT NULL,
-	FOREIGN KEY(dept_no) REFERENCES Departments (dept_no),
-	FOREIGN KEY(emp_no) REFERENCES All_Employees
-);
-
-CREATE TABLE Dept_Employees (
-    Member_ID INTEGER   NOT NULL,
-    Gym_ID INTEGER   NOT NULL,
-    Trainer_ID INTEGER   NOT NULL,
-    First_Name VARCHAR   NOT NULL,
-    Last_Name VARCHAR   NOT NULL,
-    Address VARCHAR   NOT NULL,
-    CITY VARCHAR   NOT NULL,
-    PRIMARY KEY (Member_ID)
-    FOREIGN KEY(Gym_ID) REFERENCES Gym (Gym_ID);
-    FOREIGN KEY(Trainer_ID) REFERENCES Trainers (Trainer_ID);
+	PRIMARY KEY (title_id)
 );
 
 CREATE TABLE All_Employees (
-    Payment_ID INTEGER   NOT NULL,
-    Member_ID INTEGER   NOT NULL,
-    CreditCard_Info INTEGER   NOT NULL,
-    Billing_Zip INTEGER   NOT NULL,
-    PRIMARY KEY (Payment_ID)
-    FOREIGN KEY(Member_ID) REFERENCES Members (Member_ID);
+    emp_no INT NOT NULL,
+	emp_title_id INTEGER NOT NULL,
+	birth_date date NOT NULL,
+	first_name VARCHAR(30),
+	last_name VARCHAR(30),
+	sex VARCHAR(30),
+	hire_date date NOT NULL,
+	PRIMARY KEY (emp_no),
+	FOREIGN KEY(emp_title_id) REFERENCES Titles (title_id)
+);
+
+CREATE TABLE Managers_Dept (
+    id SERIAL NOT NULL,
+	dept_no INT NOT NULL,
+	emp_no INT NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY(dept_no) REFERENCES Departments (dept_no),
+	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
+);
+
+CREATE TABLE Dept_Employees (
+    id SERIAL NOT NULL,
+	emp_no INT NOT NULL,
+	dept_no INT NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY(dept_no) REFERENCES Departments (dept_no),
+	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
 );
 
 CREATE TABLE Salaries (
-    Payment_ID INTEGER   NOT NULL,
-    Member_ID INTEGER   NOT NULL,
-    CreditCard_Info INTEGER   NOT NULL,
-    Billing_Zip INTEGER   NOT NULL,
-    PRIMARY KEY (Payment_ID)
-    FOREIGN KEY(Member_ID) REFERENCES Members (Member_ID);
+    id SERIAL NOT NULL,
+	emp_no INTEGER NOT NULL,
+	salary INTEGER NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
 );
 
 --list ALL EMPLOYEES: emp_no, last_name, first_name, sex, salary 
