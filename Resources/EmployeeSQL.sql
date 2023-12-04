@@ -6,6 +6,7 @@
 --DROP TABLE Titles;
 --DROP TABLE Departments;
 
+--Create tables
 CREATE TABLE Departments (
     dept_no VARCHAR(15) NOT NULL,
     dept_name VARCHAR(30) NOT NULL,
