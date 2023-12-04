@@ -59,8 +59,24 @@ CREATE TABLE Salaries (
 
 
 --list ALL EMPLOYEES: emp_no, last_name, first_name, sex, salary 
+SELECT ae.emp_no, 
+	ae.last_name, 
+	ae.first_name,
+	ae.sex,
+	salaries.salary
+FROM All_Employees as ae
+INNER JOIN salaries ON
+ae.emp_no = salaries.emp_no;
 
 --list EMPLOYEES HIRED IN 1986: first_name, last_name, hire_date
+SELECT first_name,
+last_name,
+hire_date
+FROM All_Employees
+WHERE DATE_PART('Year', hire_date) = 1986;
+
+	
+ae.emp_no = salaries.emp_no;
 
 --list MANAGERS ONLY: dept_no, dept_name, emp_no, last_name, first_name
 
