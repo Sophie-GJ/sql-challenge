@@ -1,20 +1,26 @@
 --create and define new tables
+--DROP TABLE Salaries;
+--DROP TABLE Managers_Dept;
+--DROP TABLE Dept_Employees;
+--DROP TABLE All_Employees;
+--DROP TABLE Titles;
+--DROP TABLE Departments;
 
 CREATE TABLE Departments (
-    dept_no INT NOT NULL,
+    dept_no VARCHAR(15) NOT NULL,
     dept_name VARCHAR(30) NOT NULL,
 	PRIMARY KEY (dept_no)
 );
 
 CREATE TABLE Titles (
-    title_id INTEGER NOT NULL,
+    title_id VARCHAR(15) NOT NULL,
 	title VARCHAR(30) NOT NULL,
 	PRIMARY KEY (title_id)
 );
 
 CREATE TABLE All_Employees (
-    emp_no INT NOT NULL,
-	emp_title_id INTEGER NOT NULL,
+    emp_no VARCHAR(15) NOT NULL,
+	emp_title_id VARCHAR(15) NOT NULL,
 	birth_date date NOT NULL,
 	first_name VARCHAR(30),
 	last_name VARCHAR(30),
@@ -25,30 +31,32 @@ CREATE TABLE All_Employees (
 );
 
 CREATE TABLE Managers_Dept (
-    id SERIAL NOT NULL,
-	dept_no INT NOT NULL,
-	emp_no INT NOT NULL,
-	PRIMARY KEY (id),
+    dept_no VARCHAR(15) NOT NULL,
+	emp_no VARCHAR(15) NOT NULL,
+	--find a way to add ID row?
+	--id SERIAL NOT NULL,
+	--PRIMARY KEY (id),
 	FOREIGN KEY(dept_no) REFERENCES Departments (dept_no),
 	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
 );
 
 CREATE TABLE Dept_Employees (
-    id SERIAL NOT NULL,
-	emp_no INT NOT NULL,
-	dept_no INT NOT NULL,
-	PRIMARY KEY (id),
+    --id SERIAL NOT NULL,
+	emp_no VARCHAR(15) NOT NULL,
+	dept_no VARCHAR(15) NOT NULL,
+	--PRIMARY KEY (id),
 	FOREIGN KEY(dept_no) REFERENCES Departments (dept_no),
 	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
 );
 
 CREATE TABLE Salaries (
-    id SERIAL NOT NULL,
-	emp_no INTEGER NOT NULL,
+    --id SERIAL NOT NULL,
+	emp_no VARCHAR(15) NOT NULL,
 	salary INTEGER NOT NULL,
-	PRIMARY KEY (id),
+	--PRIMARY KEY (id),
 	FOREIGN KEY(emp_no) REFERENCES All_Employees (emp_no)
 );
+
 
 --list ALL EMPLOYEES: emp_no, last_name, first_name, sex, salary 
 
