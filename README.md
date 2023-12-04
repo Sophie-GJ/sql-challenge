@@ -6,7 +6,7 @@ Module 9 Homework assignment
 Data Modeling (10 points)
 Entity Relationship Diagram is included or table schemas provided for all tables (10 points)
 
-link to ERD: https://app.quickdatabasediagrams.com/#/d/ksWgqL
+ERD can be found in "Resources" folder. It is also available at the following link: https://app.quickdatabasediagrams.com/#/d/ksWgqL
 
 Data Engineering (70 points)
 All required columns are defined for each table (10 points)
