@@ -1,12 +1,11 @@
 # sql-challenge
 Module 9 Homework assignment
 
+ERD can be found in "Resources" folder. It is also available at the following link: https://app.quickdatabasediagrams.com/#/d/ksWgqL
 
 ##Requirements
 Data Modeling (10 points)
 Entity Relationship Diagram is included or table schemas provided for all tables (10 points)
-
-ERD can be found in "Resources" folder. It is also available at the following link: https://app.quickdatabasediagrams.com/#/d/ksWgqL
 
 Data Engineering (70 points)
 All required columns are defined for each table (10 points)
@@ -16,6 +15,7 @@ Correctly references related tables (10 points)
 Tables are correctly related using Foreign Keys (10 points)
 Correctly uses NOT NULL condition on necessary columns (10 points)
 Accurately defines value length for columns (10 points)
+
 Data Analysis (20 points)
 List the employee number, last name, first name, sex, and salary of each employee (2 points)
 List the first name, last name, and hire date for the employees who were hired in 1986 (2 points)
