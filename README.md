@@ -1,7 +1,7 @@
 # sql-challenge
 Module 9 Homework assignment
 
-ERD can be found in "Resources" folder. It is also available at the following link: https://app.quickdatabasediagrams.com/#/d/ksWgqL
+ERD can be found in "Resources" folder.
 
 ##Requirements
 Data Modeling (10 points)
